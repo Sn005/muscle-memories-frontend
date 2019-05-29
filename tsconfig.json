@@ -15,7 +15,8 @@
     "noImplicitAny": false,
     "types": [
       "webpack-env",
-      "jest"
+      "jest",
+      "json-server"
     ],
     "paths": {
       "@/*": [
