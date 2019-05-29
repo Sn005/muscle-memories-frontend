@@ -1,5 +1,5 @@
 // Start json-server
-import { db } from './db'
+import { db } from './mock-db'
 import jsonServer from 'json-server'
 const server = jsonServer.create()
 const router = jsonServer.router(db)

@@ -7,7 +7,7 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt",
-    "dev:mock-api": "ts-node --project tsconfig.node.json ./api/http/mocks/json-server.ts",
+    "dev:mock-api": "nodemon",
     "generate": "nuxt generate",
     "start": "nuxt start",
     "lint": "vue-cli-service lint",
@@ -52,7 +52,7 @@
     "faker": "^4.1.0",
     "jest": "^24.1.0",
     "json-server": "^0.15.0",
-    "nodemon": "^1.18.9",
+    "nodemon": "^1.19.1",
     "prettier": "^1.16.4",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
