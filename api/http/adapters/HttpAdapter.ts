@@ -4,7 +4,7 @@ import axios, { AxiosInstance } from 'axios'
 export default class HttpAdapter implements AdapterInterface {
   private request(): AxiosInstance {
     return axios.create({
-      baseURL: 'https://localhost:3001/api/'
+      baseURL: 'http://localhost:3001/'
     })
   }
   async get<Res, Req = void>(endpoint: string, req: Req): Promise<Res> {
