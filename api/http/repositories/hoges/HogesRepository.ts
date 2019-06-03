@@ -1,13 +1,13 @@
-import PostsModelInterface from './PostsModelInterface'
+import HogesModelInterface from './HogesModelInterface'
 import PostsQueryInterface from './PostsQueryInterface'
 import AbstractRepository from '../AbstractRepository'
 import AdapterInterface from '../../adapters/AdapterInterface'
-export default class PostsRepository extends AbstractRepository<
-  PostsModelInterface,
+export default class HogesRepository extends AbstractRepository<
+  HogesModelInterface,
   PostsQueryInterface
 > {
-  constructor(Adapter) {
-    const rootUri = 'posts'
+  constructor(Adapter: AdapterInterface) {
+    const rootUri = 'hoge'
     super(Adapter, rootUri)
   }
 }

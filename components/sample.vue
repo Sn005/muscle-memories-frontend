@@ -12,8 +12,7 @@ import { getterTypes } from '@/store/sample/getters'
 import RepositoryFactory, {
   repositoryTypes
 } from '@/api/http/repositories/RepositoryFactory'
-// import Posts from '@/api/http/repositories/posts/PostsRepository'
-const PostsRepository = RepositoryFactory.get(repositoryTypes.posts)
+const PostsRepository = RepositoryFactory.get<repositoryTypes['hoges']>('hoges')
 
 export default Vue.extend({
   name: 'Sample',
