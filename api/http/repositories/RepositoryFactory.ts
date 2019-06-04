@@ -1,5 +1,4 @@
 import HttpAdapter from '../adapters/HttpAdapter'
-import AdapterInterface from '../adapters/AdapterInterface'
 import MockHttpAdapter from '../adapters/MockHttpAdapter'
 
 import PostsRepository from './posts/PostsRepository'
