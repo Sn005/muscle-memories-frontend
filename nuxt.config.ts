@@ -1,5 +1,7 @@
 import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
-import pkg from './package'
+import pkg from './package.json'
+import * as dotenv from 'dotenv'
+dotenv.config()
 
 export default {
   mode: 'spa',
@@ -69,5 +71,12 @@ export default {
         })
       }
     }
+  },
+  /*
+   ** Set env
+   */
+  env: {
+    API_URL: process.env.API_URL,
+    IS_OFFLINE: process.env.IS_OFFLINE
   }
 }
