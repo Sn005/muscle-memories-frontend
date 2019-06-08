@@ -72,6 +72,12 @@ export default {
       }
     }
   },
+  router: {
+    /*
+     ** Set middleware
+     */
+    middleware: 'is-auth'
+  },
   /*
    ** Set env
    */

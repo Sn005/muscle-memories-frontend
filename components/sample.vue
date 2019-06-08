@@ -16,10 +16,10 @@ const PostsRepository = RepositoryFactory.get<repositoryTypes['posts']>('posts')
 
 export default Vue.extend({
   name: 'Sample',
-  async mounted() {
-    const result = await PostsRepository.all()
-    console.log(result)
-  },
+  // async mounted() {
+  //   const result = await PostsRepository.all()
+  //   console.log(result)
+  // },
   methods: {
     async changeFirstName() {
       this.$store.dispatch(namespace + actionTypes.changeFirstNameAsync)
