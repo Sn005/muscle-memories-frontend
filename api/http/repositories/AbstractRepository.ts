@@ -29,8 +29,8 @@ export default abstract class AbstractRepository<T, U>
     const result = await this.adapter.put(`${this.rootUri}/${id}`, payload)
     return result[0]
   }
-  public async delete(id: number): Promise<T> {
+  public async delete(id: number): Promise<boolean> {
     const result = await this.adapter.delete(`${this.rootUri}/${id}`)
-    return result[0]
+    return result
   }
 }

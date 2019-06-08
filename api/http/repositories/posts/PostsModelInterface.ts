@@ -1,4 +1,5 @@
-export default interface PostInterface {
+export default interface PostsModelInterface {
+  id: number
   name: string
   title: string
   context: string
