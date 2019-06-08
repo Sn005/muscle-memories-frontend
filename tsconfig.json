@@ -19,6 +19,7 @@
       "jest",
       "json-server",
       "dotenv",
+      "firebase",
     ],
     "paths": {
       "@/*": [
@@ -40,7 +41,7 @@
     "**/*.tsx",
     "**/*.vue",
     "test/**/*.ts",
-    "test/**/*.tsx", "test/example.spec.js"
+    "test/**/*.tsx"
   ],
   "exclude": [
     "node_modules"
