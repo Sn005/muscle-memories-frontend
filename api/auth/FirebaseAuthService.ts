@@ -13,7 +13,7 @@ export default class FirebaseAuthService {
    * @returns Promise<{}>
    * @memberof FirebaseAuthService
    */
-  public fetchMyAccount() {
+  public fetchMyAccount(): Promise<firebase.User> {
     return new Promise((resolve, reject) => {
       auth.onAuthStateChanged(user => {
         if (user) resolve(user)

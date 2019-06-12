@@ -88,3 +88,6 @@ storybook-static
 
 # memo
 memo
+
+# vscode setting
+.vscode/
