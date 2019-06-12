@@ -19,6 +19,7 @@ module.exports = {
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname'
   ],
+  testPathIgnorePatterns: ['<rootDir>/node_modules/', '__tests__/mocks/'],
   globals: {
     'ts-jest': {
       babelConfig: true

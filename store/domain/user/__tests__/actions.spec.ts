@@ -1,6 +1,6 @@
 import actions from '../actions'
 import { types } from '../mutations'
-import { mockState } from './mockState'
+import { mockState } from './mocks/mockState'
 
 const mockRes = {
   uid: 'hoge',

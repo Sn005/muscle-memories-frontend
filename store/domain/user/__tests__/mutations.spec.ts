@@ -1,6 +1,6 @@
 import mutations, { types } from '../mutations'
 import { State } from '../state'
-import { mockState } from './mockState'
+import { mockState } from './mocks/mockState'
 
 describe('domain/user/mutationsのテスト', () => {
   test('SET_USERを実行したらstate.userの値がpayloadで渡した値になること', () => {
