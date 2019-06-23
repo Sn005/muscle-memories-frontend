@@ -1,5 +1,5 @@
 {
-  "watch": ["api/http/mocks/"],
+  "watch": ["src/api/http/mocks/"],
   "ext": "ts",
-  "exec": "ts-node --project tsconfig.node.json ./api/http/mocks/mock-server.ts"
+  "exec": "ts-node --project tsconfig.node.json ./src/api/http/mocks/mock-server.ts"
 }
