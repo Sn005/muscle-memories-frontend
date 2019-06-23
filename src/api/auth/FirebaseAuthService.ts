@@ -1,5 +1,5 @@
 import firebase from '@/config/firebase'
-const auth = firebase.auth()
+// const auth = firebase.auth()
 
 /**
  * Firebaseの認証関係処理を行うクラス
@@ -8,6 +8,7 @@ const auth = firebase.auth()
  * @class FirebaseAuthService
  */
 export default class FirebaseAuthService {
+  private auth = firebase.auth()
   /**
    * ログインしているユーザ自身の情報を取得するメソッド
    * @returns Promise<{}>
@@ -15,7 +16,7 @@ export default class FirebaseAuthService {
    */
   public fetchMyAccount(): Promise<firebase.User> {
     return new Promise((resolve, reject) => {
-      auth.onAuthStateChanged(user => {
+      this.auth.onAuthStateChanged(user => {
         if (user) resolve(user)
         reject(new Error(`ユーザー認証に失敗しました`))
       })
@@ -34,7 +35,7 @@ export default class FirebaseAuthService {
       twitter: new firebase.auth.TwitterAuthProvider(),
       facebook: new firebase.auth.FacebookAuthProvider()
     }
-    const result = await auth.signInWithPopup(providers[sns])
+    const result = await this.auth.signInWithPopup(providers[sns])
     return result.user
   }
   /**
@@ -46,7 +47,7 @@ export default class FirebaseAuthService {
    */
   public async signInByEmail(payload: { email: string; password: string }) {
     const { email, password } = payload
-    const result = await auth.signInWithEmailAndPassword(email, password)
+    const result = await this.auth.signInWithEmailAndPassword(email, password)
     return result.user
   }
   /**
@@ -56,7 +57,7 @@ export default class FirebaseAuthService {
    * @memberof FirebaseAuthService
    */
   public async signOut() {
-    const result = await auth.signOut()
+    const result = await this.auth.signOut()
     return result
   }
 }
