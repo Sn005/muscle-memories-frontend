@@ -32,6 +32,7 @@ import HelloWorld from '~/components/HelloWorld.vue'
 import InputName from '@/components/InputName.vue'
 import ShowName from '@/components/ShowName.vue'
 import Sample from '@/components/sample.vue'
+import DeviceHandler from '@/components/atoms/factory-component/DeviceHandler'
 
 export default {
   components: {
