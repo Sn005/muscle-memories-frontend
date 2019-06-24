@@ -5,10 +5,10 @@ export default (
   mobileComponent: VueConstructor
 ) => {
   const component = isMobile() ? mobileComponent : desktopComponent
-  const props = (component as any).props || []
-
   return Vue.extend({
     functional: true,
-    render: (h: CreateElement): VNode => h(component, { props })
+    render(h: CreateElement, { props }): VNode {
+      return h(component, { props })
+    }
   })
 }
