@@ -8,7 +8,7 @@ export default class HttpAdapter implements AdapterInterface {
       baseURL: apiUri
     })
   }
-  async get<Res, Req = void>(endpoint: string, req: Req): Promise<Res> {
+  async get<T, U = void>(endpoint: string, req: U): Promise<T> {
     const result = await this.request()
       .get(endpoint, req)
       .catch(e => {
@@ -16,7 +16,7 @@ export default class HttpAdapter implements AdapterInterface {
       })
     return result.data
   }
-  async post<Res, Req = void>(endpoint: string, req: Req): Promise<Res> {
+  async post<T>(endpoint: string, req: T): Promise<T> {
     const result = await this.request()
       .post(endpoint, req)
       .catch(e => {
@@ -24,7 +24,7 @@ export default class HttpAdapter implements AdapterInterface {
       })
     return result.data
   }
-  async put<Res, Req = void>(endpoint: string, req: Req): Promise<Res> {
+  async put<T>(endpoint: string, req: T): Promise<T> {
     const result = await this.request()
       .put(endpoint, req)
       .catch(e => {

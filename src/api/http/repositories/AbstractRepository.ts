@@ -22,7 +22,7 @@ export default abstract class AbstractRepository<T, U>
     return result[0]
   }
   public async create(payload: T): Promise<T> {
-    const result = await this.adapter.post(`${this.rootUri}`, payload)
+    const result = await this.adapter.post<T>(`${this.rootUri}`, payload)
     return result[0]
   }
   public async update(id: number, payload: T): Promise<T> {
