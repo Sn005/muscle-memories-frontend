@@ -1,8 +1,9 @@
-export default interface RepositoryInterface<T, U> {
-  all(): Promise<T[]>
-  where(query: U): Promise<T[]>
-  get(id: number): Promise<T>
-  create(payload: T): Promise<T>
-  update(id: number, payload: T): Promise<T>
+export default interface RepositoryInterface<Params, Model> {
+  rootUrl: string
+  all(): Promise<Model[]>
+  where(params: Params)
+  get(id: number): Promise<Model>
+  create(newModel: Model): Promise<Model>
+  update(id: number, updatedModel: Model): Promise<Model>
   delete(id: number): Promise<boolean>
 }

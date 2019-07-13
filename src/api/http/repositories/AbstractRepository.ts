@@ -1,35 +1,36 @@
-import AdapterInterface from '../adapters/AdapterInterface'
-import RepositoryInterface from './RepositoryInterface'
-
-export default abstract class AbstractRepository<T, U>
-  implements RepositoryInterface<T, U> {
-  private adapter: AdapterInterface
+import HttpAdapter from '../adapters/HttpAdapter'
+import MockHttpAdapter from '../adapters/MockHttpAdapter'
+export default abstract class AbstractRepository<Model, Params> {
+  private adapter: MockHttpAdapter | HttpAdapter
   private rootUri: string
-  constructor(Adapter, rootUri) {
+  constructor(Adapter: typeof MockHttpAdapter | typeof HttpAdapter, rootUri) {
     this.rootUri = rootUri
     this.adapter = new Adapter()
   }
-  public async all(): Promise<T[]> {
-    const result = await this.adapter.get<T[], U>(`${this.rootUri}/`)
+  public async all() {
+    const result = await this.adapter.get<Model[]>(`${this.rootUri}/`)
     return result
   }
-  public async where(query: U): Promise<T[]> {
-    const result = await this.adapter.get<T[], U>(`${this.rootUri}/`, query)
+  public async where(params: Params) {
+    const result = await this.adapter.get<Model[], Params>(
+      `${this.rootUri}/`,
+      params
+    )
     return result
   }
-  public async get(id: number): Promise<T> {
-    const result = await this.adapter.get<T, U>(`${this.rootUri}/${id}`)
+  public async get(id: number) {
+    const result = await this.adapter.get<Model>(`${this.rootUri}/${id}`)
     return result[0]
   }
-  public async create(payload: T): Promise<T> {
-    const result = await this.adapter.post<T>(`${this.rootUri}`, payload)
+  public async create(newModel: Model) {
+    const result = await this.adapter.post(`${this.rootUri}`, newModel)
     return result[0]
   }
-  public async update(id: number, payload: T): Promise<T> {
-    const result = await this.adapter.put(`${this.rootUri}/${id}`, payload)
+  public async update(id: number, updateModel: Model): Promise<Model> {
+    const result = await this.adapter.put(`${this.rootUri}/${id}`, updateModel)
     return result[0]
   }
-  public async delete(id: number): Promise<boolean> {
+  public async delete(id: number) {
     const result = await this.adapter.delete(`${this.rootUri}/${id}`)
     return result
   }

@@ -8,9 +8,9 @@ export default class MockHttpAdapter implements AdapterInterface {
       baseURL: mockApiUri
     })
   }
-  async get<T, U = void>(endpoint: string, req: U): Promise<T> {
+  async get<T, U = void>(endpoint: string, req?: U): Promise<T> {
     const result = await this.request()
-      .get(endpoint, req)
+      .get<T>(endpoint, req)
       .catch(e => {
         throw new Error(`${e} at ${endpoint}`)
       })
@@ -18,7 +18,7 @@ export default class MockHttpAdapter implements AdapterInterface {
   }
   async post<T>(endpoint: string, req: T): Promise<T> {
     const result = await this.request()
-      .post(endpoint, req)
+      .post<T>(endpoint, req)
       .catch(e => {
         throw new Error(`${e} at ${endpoint}`)
       })
@@ -26,13 +26,13 @@ export default class MockHttpAdapter implements AdapterInterface {
   }
   async put<T>(endpoint: string, req: T): Promise<T> {
     const result = await this.request()
-      .put(endpoint, req)
+      .put<T>(endpoint, req)
       .catch(e => {
         throw new Error(`${e} at ${endpoint}`)
       })
     return result.data
   }
-  async delete<Res>(endpoint: string): Promise<Res> {
+  async delete(endpoint: string): Promise<boolean> {
     const result = await this.request()
       .delete(endpoint)
       .catch(e => {
