@@ -9,17 +9,15 @@ import Vue from 'vue'
 import { namespace } from '@/store/sample/index'
 import { actionTypes } from '@/store/sample/actions'
 import { getterTypes } from '@/store/sample/getters'
-import RepositoryFactory, {
-  repositoryTypes
-} from '@/api/http/repositories/RepositoryFactory'
-const PostsRepository = RepositoryFactory.get<repositoryTypes['posts']>('posts')
+import RepositoryFactory from '@/api/http/repositories/RepositoryFactory'
+const PostsRepository = RepositoryFactory.get('posts')
 
 export default Vue.extend({
   name: 'Sample',
-  // async mounted() {
-  //   const result = await PostsRepository.all()
-  //   console.log(result)
-  // },
+  async mounted() {
+    const result = await PostsRepository.all()
+    console.log(result[0].name)
+  },
   methods: {
     async changeFirstName() {
       this.$store.dispatch(namespace + actionTypes.changeFirstNameAsync)

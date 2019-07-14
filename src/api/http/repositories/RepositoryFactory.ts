@@ -11,13 +11,13 @@ const repositories = {
   hoges: HogesRepository
 }
 
-export type repositoryTypes = {
+type repositoryTypes = {
   posts: PostsRepository
   hoges: HogesRepository
 }
 
 export default {
-  get<T>(name: string): T {
+  get<T extends keyof repositoryTypes>(name: T): repositoryTypes[T] {
     const result = new repositories[name](Adapter)
     return result
   }
