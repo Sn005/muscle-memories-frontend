@@ -8,7 +8,7 @@
     "build": "nuxt build",
     "dev": "nuxt",
     "dev:offline": "cross-env IS_OFFLINE=true yarn run dev",
-    "start:mock-api": "nodemon",
+    "dev:mock-api": "nodemon",
     "generate": "nuxt generate",
     "start": "nuxt start",
     "lint": "vue-cli-service lint",
