@@ -1,6 +1,6 @@
 import HttpAdapter from '../adapters/HttpAdapter'
 import MockHttpAdapter from '../adapters/MockHttpAdapter'
-export default abstract class AbstractRepository<Model, Params> {
+export default abstract class AbstractRepository<Model, Query> {
   private adapter: MockHttpAdapter | HttpAdapter
   private rootUri: string
   constructor(Adapter: typeof MockHttpAdapter | typeof HttpAdapter, rootUri) {
@@ -11,10 +11,10 @@ export default abstract class AbstractRepository<Model, Params> {
     const result = await this.adapter.get<Model[]>(`${this.rootUri}/`)
     return result
   }
-  public async where(params: Params) {
-    const result = await this.adapter.get<Model[], Params>(
+  public async where(query: Query) {
+    const result = await this.adapter.get<Model[], Query>(
       `${this.rootUri}/`,
-      params
+      query
     )
     return result
   }
