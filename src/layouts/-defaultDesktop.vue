@@ -11,38 +11,16 @@
   </v-app>
 </template>
 
-<script>
-import AppNavigation from '@/components/containers/desktop/AppNavigation'
-import AppToolbar from '@/components/containers/desktop/AppToolbar'
-import AppFooter from '@/components/containers/desktop/AppFooter'
-export default {
-  data() {
-    return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'apps',
-          title: 'Welcome',
-          to: '/'
-        },
-        {
-          icon: 'bubble_chart',
-          title: 'Inspire',
-          to: '/inspire'
-        }
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
-    }
-  },
+<script lang="ts">
+import Vue from 'vue'
+import AppNavigation from '@/components/containers/desktop/AppNavigation.vue'
+import AppToolbar from '@/components/containers/desktop/AppToolbar.vue'
+import AppFooter from '@/components/containers/desktop/AppFooter.vue'
+export default Vue.extend({
   components: {
     AppNavigation,
     AppToolbar,
     AppFooter
   }
-}
+})
 </script>

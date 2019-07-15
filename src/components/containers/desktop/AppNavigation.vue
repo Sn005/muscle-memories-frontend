@@ -1,6 +1,6 @@
 <template>
   <div @mouseover.stop="openNavigation" @mouseleave.stop="closeNavigation">
-    <v-navigation-drawer drawer fixed app :miniVariant="miniVariant">
+    <v-navigation-drawer drawer fixed app :miniVariant.sync="miniVariant">
       <!-- <div @click="mouseover">hoge</div> -->
       <v-list>
         <v-list-tile
