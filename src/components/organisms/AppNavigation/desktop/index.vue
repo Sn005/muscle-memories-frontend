@@ -1,7 +1,6 @@
 <template>
   <div @mouseover.stop="openNavigation" @mouseleave.stop="closeNavigation">
     <v-navigation-drawer drawer fixed :miniVariant.sync="miniVariant">
-      <!-- <div @click="mouseover">hoge</div> -->
       <v-list>
         <v-list-tile
           v-for="(item, i) in items"
@@ -21,24 +20,20 @@
     </v-navigation-drawer>
   </div>
 </template>
-<script>
-export default {
-  data() {
+<script lang="ts">
+import Vue from 'vue'
+import { INavigationItem } from '../types'
+import { navigationItem } from '../constants'
+
+interface IData {
+  miniVariant: boolean
+  items: INavigationItem[]
+}
+export default Vue.extend({
+  data(): IData {
     return {
       miniVariant: true,
-      items: [
-        {
-          icon: 'apps',
-          title: 'Welcome',
-          to: '/'
-        },
-        {
-          icon: 'bubble_chart',
-          title: 'Inspire',
-          to: '/inspire'
-        }
-      ],
-      title: 'Vuetify.js'
+      items: navigationItem
     }
   },
   methods: {
@@ -49,5 +44,5 @@ export default {
       this.miniVariant = true
     }
   }
-}
+})
 </script>
