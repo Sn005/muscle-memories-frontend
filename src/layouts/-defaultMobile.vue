@@ -22,9 +22,9 @@
 </template>
 
 <script>
-import AppNavigation from '@/components/containers/mobile/AppNavigation'
-import AppToolbar from '@/components/containers/mobile/AppToolbar'
-import AppFooter from '@/components/containers/mobile/AppFooter'
+import AppNavigation from '@/components/containers/AppNavigation'
+import AppToolbar from '@/components/containers/AppToolbar'
+import AppFooter from '@/components/containers/AppFooter'
 export default {
   data() {
     return {
