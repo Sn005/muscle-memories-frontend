@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <app-navigation />
-    <v-content class="content">
+    <v-content>
       <app-toolbar />
       <v-container>
         <nuxt />
@@ -25,8 +25,8 @@ export default Vue.extend({
 })
 </script>
 <style scoped>
-.content {
+/* .content {
   width: calc(100% - 80px);
   margin-left: 80px;
-}
+} */
 </style>
