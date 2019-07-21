@@ -12,7 +12,7 @@ addDecorator(story => ({
   template: '<decorator><story slot="story"></story></decorator>'
 }))
 
-const req = require.context('../../src/components', true, /.stories.js$/)
+const req = require.context('../../src/components', true, /.stories*.(js|ts)$/)
 
 function loadStories() {
   req.keys().forEach(filename => req(filename))

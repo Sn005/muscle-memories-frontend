@@ -1,23 +1,23 @@
 <template>
   <v-list-tile avatar>
     <v-list-tile-avatar>
-      <img :src="icon" />
+      <img :src="userInfo.icon" />
     </v-list-tile-avatar>
     <v-list-tile-content>
-      <v-list-tile-title>{{ name }}</v-list-tile-title>
+      <v-list-tile-title>{{ userInfo.name }}</v-list-tile-title>
     </v-list-tile-content>
   </v-list-tile>
 </template>
 <script lang="ts">
-import Vue from 'vue'
-import { IUserInfo } from '../../../types'
+import Vue, { PropType } from 'vue'
 
+export interface IUserInfoProps {
+  icon: string
+  name: string
+}
 export default Vue.extend({
-  data(): IUserInfo {
-    return {
-      icon: 'https://randomuser.me/api/portraits/men/85.jpg',
-      name: 'John Leider'
-    }
+  props: {
+    userInfo: Object as PropType<IUserInfoProps>
   }
 })
 </script>
