@@ -3,7 +3,6 @@ export interface INavigationItem {
   title: string
   to: string
 }
-
 export interface IUserInfo {
   icon: string
   name: string
