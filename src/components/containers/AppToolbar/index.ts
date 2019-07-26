@@ -1,5 +1,5 @@
-import DesktopAppToolbar from './DesktopAppToolbar.vue'
-import MobileAppToolbar from './MobileAppToolbar.vue'
+import desktop from './desktop.vue'
+import mobile from './mobile.vue'
 import DeviceHandler from '@/components/atoms/factory-component/DeviceHandler'
-export default DeviceHandler(DesktopAppToolbar, MobileAppToolbar)
-export { DesktopAppToolbar, MobileAppToolbar }
+export default DeviceHandler(desktop, mobile)
+export { desktop, mobile }
