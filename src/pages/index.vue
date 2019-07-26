@@ -42,6 +42,11 @@ export default {
     InputName,
     ShowName,
     Sample
+  },
+  head() {
+    return {
+      title: 'hoge'
+    }
   }
 }
 </script>
