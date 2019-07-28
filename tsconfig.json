@@ -23,7 +23,6 @@
       "firebase",
       "@types/node",
       "@nuxt/vue-app",
-      "@nuxtjs/meta",
     ],
     "paths": {
       "@/*": [

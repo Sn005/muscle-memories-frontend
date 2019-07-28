@@ -5,11 +5,13 @@
 </template>
 <script lang="ts">
 import Vue from 'vue'
+import { generateFormattedTitle } from './utils'
+
 export default Vue.extend({
   computed: {
     title() {
       // @ts-ignore: Unreachable code error
-      return this.$meta().inject().titleChunk
+      return generateFormattedTitle(this.$meta().inject().titleChunk)
     }
   }
 })
