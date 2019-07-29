@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer drawer fixed app>
+  <v-navigation-drawer v-model="localIsOpen" drawer fixed app>
     <user-area-layout>
       <template v-slot:userInfo>
         <user-info :userInfo="userInfo" />
@@ -29,7 +29,15 @@ export default Vue.extend({
   },
   props: {
     list: Array as PropType<INavigationItem[]>,
-    userInfo: Object as PropType<IUserInfo>
+    userInfo: Object as PropType<IUserInfo>,
+    isOpen: {
+      type: Boolean
+    }
+  },
+  computed: {
+    localIsOpen(): boolean {
+      return this.isOpen
+    }
   }
 })
 </script>

@@ -8,7 +8,7 @@
       </v-container>
       <app-footer />
     </v-content>
-    <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
+    <v-navigation-drawer temporary fixed>
       <v-list>
         <v-list-tile @click.native="right = !right">
           <v-list-tile-action>
@@ -21,38 +21,16 @@
   </v-app>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import AppNavigation from '@/components/containers/AppNavigation'
 import AppToolbar from '@/components/containers/AppToolbar'
 import AppFooter from '@/components/containers/AppFooter'
-export default {
-  data() {
-    return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'apps',
-          title: 'Welcome',
-          to: '/'
-        },
-        {
-          icon: 'bubble_chart',
-          title: 'Inspire',
-          to: '/inspire'
-        }
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
-    }
-  },
+export default Vue.extend({
   components: {
     AppNavigation,
     AppToolbar,
     AppFooter
   }
-}
+})
 </script>

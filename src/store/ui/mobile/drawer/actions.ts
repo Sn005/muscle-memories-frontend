@@ -1,16 +1,16 @@
 import { RootContext } from '@/store/index'
-import { types } from './mutations'
+import { mutationTypes } from './mutations'
 
-export const actionTypes = {
-  toggleDrawer: 'toggleDrawer'
-} as const
+export enum actionTypes {
+  toggleDrawer = 'toggleDrawer'
+}
 
 export interface Actions {
   [actionTypes.toggleDrawer]: (context: RootContext) => void
 }
 const actions: Actions = {
   [actionTypes.toggleDrawer]({ commit }): void {
-    commit(types.TOGGLE_DRAWER)
+    commit(mutationTypes.TOGGLE_DRAWER)
   }
 }
 
