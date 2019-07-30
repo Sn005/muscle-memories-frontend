@@ -1,14 +1,15 @@
 <template>
   <div>
-    <app-navigation :list="list" :userInfo="userInfo" :isOpen="isOpen" />
+    <app-navigation :list="list" :userInfo="userInfo" :isOpen.sync="isOpen" />
   </div>
 </template>
 <script lang="ts">
 import Vue from 'vue'
-import AppNavigation, {
+import {
   INavigationItem,
   IUserInfo
-} from '@/components/organisms/AppNavigation'
+} from '@/components/organisms/AppNavigation/index.ts'
+import AppNavigation from '@/components/organisms/AppNavigation/mobile.vue'
 import { paths } from '@/store/ui/mobile/drawer'
 interface IData {
   list: INavigationItem[]
@@ -36,9 +37,21 @@ export default Vue.extend({
       }
     }
   },
+  methods: {
+    updateIsOpen() {
+      console.log('test')
+    }
+  },
   computed: {
-    isOpen(): boolean {
-      return this.$store.getters[paths.getters.isOpen]
+    isOpen: {
+      get(): boolean {
+        return this.$store.getters[paths.getters.isOpen]
+      },
+      set(): void {
+        console.log(this.isOpen)
+        // this.$store.dispatch(paths.actions.toggleDrawer)
+        // this.$store.getters[paths.getters.isOpen]
+      }
     }
   }
 })

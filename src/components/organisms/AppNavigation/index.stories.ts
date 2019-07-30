@@ -2,7 +2,8 @@
 import { storiesOf } from '@storybook/vue'
 import { withInfo } from 'storybook-addon-vue-info'
 
-import AppNavigation, { INavigationItem, IUserInfo } from './index.vue'
+import AppNavigation from './desktop.vue'
+import { INavigationItem, IUserInfo } from './types'
 
 storiesOf('organisms/AppNavigation', module)
   .addDecorator(withInfo)

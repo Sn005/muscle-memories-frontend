@@ -8,7 +8,7 @@ import Vue from 'vue'
 import AppNavigation, {
   INavigationItem,
   IUserInfo
-} from '@/components/organisms/AppNavigation'
+} from '@/components/organisms/AppNavigation/index.ts'
 interface IData {
   list: INavigationItem[]
   userInfo: IUserInfo
