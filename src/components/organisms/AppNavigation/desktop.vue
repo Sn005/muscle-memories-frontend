@@ -1,16 +1,14 @@
 <template>
   <div>
-    <v-navigation-drawer fixed app>
-      <user-area-layout>
-        <template v-slot:userInfo>
-          <user-info :userInfo="userInfo" />
-        </template>
-        <template v-slot:userMenu>
-          <user-menu />
-        </template>
-      </user-area-layout>
-      <navigation-list :list="list" />
-    </v-navigation-drawer>
+    <user-area-layout>
+      <template v-slot:userInfo>
+        <user-info :userInfo="userInfo" />
+      </template>
+      <template v-slot:userMenu>
+        <user-menu />
+      </template>
+    </user-area-layout>
+    <navigation-list :list="list" />
   </div>
 </template>
 <script lang="ts">

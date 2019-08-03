@@ -10,8 +10,8 @@ export interface Getters {
 }
 
 const getters: Getters = {
-  [getterTypes.isOpen]: state => state.isOpen,
-  [getterTypes.isClose]: state => !state.isOpen
+  [getterTypes.isOpen]: state => state.drawer,
+  [getterTypes.isClose]: state => !state.drawer
 }
 
 export default {

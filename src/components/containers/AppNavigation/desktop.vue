@@ -1,6 +1,8 @@
 <template>
   <div>
-    <app-navigation :list="list" :userInfo="userInfo" />
+    <v-navigation-drawer fixed app>
+      <app-navigation :list="list" :userInfo="userInfo" />
+    </v-navigation-drawer>
   </div>
 </template>
 <script lang="ts">

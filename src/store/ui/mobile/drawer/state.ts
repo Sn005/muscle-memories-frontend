@@ -1,7 +1,7 @@
 export interface State {
-  isOpen: boolean
+  drawer: boolean
 }
 
 export default (): State => ({
-  isOpen: false
+  drawer: false
 })

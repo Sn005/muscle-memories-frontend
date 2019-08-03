@@ -1,15 +1,20 @@
 <template>
   <div>
-    <app-navigation :list="list" :userInfo="userInfo" :isOpen.sync="isOpen" />
+    <v-btn icon @click.stop="toggleTemp">
+      <v-icon>web</v-icon>
+    </v-btn>
+
+    <v-navigation-drawer v-model="isOpen" fixed app temporary>
+      <app-navigation :list="list" :userInfo="userInfo" />
+    </v-navigation-drawer>
   </div>
 </template>
 <script lang="ts">
 import Vue from 'vue'
-import {
+import AppNavigation, {
   INavigationItem,
   IUserInfo
 } from '@/components/organisms/AppNavigation/index.ts'
-import AppNavigation from '@/components/organisms/AppNavigation/mobile.vue'
 import { paths } from '@/store/ui/mobile/drawer'
 interface IData {
   list: INavigationItem[]
@@ -38,8 +43,8 @@ export default Vue.extend({
     }
   },
   methods: {
-    updateIsOpen() {
-      console.log('test')
+    toggleTemp() {
+      this.isOpen = !this.isOpen
     }
   },
   computed: {
@@ -47,10 +52,8 @@ export default Vue.extend({
       get(): boolean {
         return this.$store.getters[paths.getters.isOpen]
       },
-      set(): void {
-        console.log(this.isOpen)
-        // this.$store.dispatch(paths.actions.toggleDrawer)
-        // this.$store.getters[paths.getters.isOpen]
+      set(val): void {
+        this.$store.dispatch(paths.actions.setDrawer, val)
       }
     }
   }

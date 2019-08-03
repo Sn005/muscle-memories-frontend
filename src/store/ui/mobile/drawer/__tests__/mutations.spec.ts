@@ -1,18 +1,27 @@
-import mutations, { types } from '../mutations'
+import mutations, { mutationTypes } from '../mutations'
 
 describe('ui/mobile/drawer/mutationsのテスト', () => {
-  test('stateのisOpenがfalseの状態で、TOGGLE_DRAWERを実行した場合、isOpenがtrueになるか', () => {
+  test('stateのisOpendrawerがfalseの状態で、TOGGLE_DRAWERを実行した場合、drawerがtrueになること', () => {
     const mockState = {
-      isOpen: true
+      drawer: true
     }
-    mutations[types.TOGGLE_DRAWER](mockState)
-    expect(mockState.isOpen).toBeFalsy()
+    mutations[mutationTypes.TOGGLE_DRAWER](mockState)
+    expect(mockState.drawer).toBeFalsy()
   })
-  test('stateのisOpenがtrueの状態で、TOGGLE_DRAWERを実行した場合、isOpenがfalseになるか', () => {
+  test('stateのdrawerがtrueの状態で、TOGGLE_DRAWERを実行した場合、drawerがfalseになること', () => {
     const mockState = {
-      isOpen: false
+      drawer: false
     }
-    mutations[types.TOGGLE_DRAWER](mockState)
-    expect(mockState.isOpen).toBeTruthy()
+    mutations[mutationTypes.TOGGLE_DRAWER](mockState)
+    expect(mockState.drawer).toBeTruthy()
+  })
+  test('SET_DRAWERを実行した場合、引数で渡したboolean値がdrawerの値になること', () => {
+    const mockState = {
+      drawer: false
+    }
+    mutations[mutationTypes.SET_DRAWER](mockState, true)
+    expect(mockState.drawer).toBeTruthy()
+    mutations[mutationTypes.SET_DRAWER](mockState, false)
+    expect(mockState.drawer).toBeFalsy()
   })
 })
