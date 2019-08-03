@@ -1,9 +1,5 @@
 <template>
   <div>
-    <v-btn icon @click.stop="toggleTemp">
-      <v-icon>web</v-icon>
-    </v-btn>
-
     <v-navigation-drawer v-model="isOpen" fixed app temporary>
       <app-navigation :list="list" :userInfo="userInfo" />
     </v-navigation-drawer>
@@ -41,11 +37,6 @@ export default Vue.extend({
         icon: 'https://randomuser.me/api/portraits/men/85.jpg',
         name: 'John Leider'
       }
-    }
-  },
-  methods: {
-    toggleTemp() {
-      this.isOpen = !this.isOpen
     }
   },
   computed: {
