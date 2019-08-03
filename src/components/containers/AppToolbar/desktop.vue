@@ -8,6 +8,7 @@ import Vue from 'vue'
 import { generateFormattedTitle } from './utils'
 
 export default Vue.extend({
+  name: 'DesktopAppToolbar',
   computed: {
     title() {
       // @ts-ignore: Unreachable code error

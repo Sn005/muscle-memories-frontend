@@ -21,6 +21,7 @@ import UserAreaLayout from './partial/UserAreaLayout/index.vue'
 import NavigationList from './partial/NavigationList/index.vue'
 
 export default Vue.extend({
+  name: 'AppNavigation',
   components: {
     UserInfo,
     UserMenu,

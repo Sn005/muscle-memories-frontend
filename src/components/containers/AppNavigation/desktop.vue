@@ -17,6 +17,7 @@ interface IData {
 }
 export default Vue.extend({
   components: { AppNavigation },
+  name: 'DesktopAppNavigation',
   data(): IData {
     return {
       list: [

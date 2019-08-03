@@ -11,6 +11,7 @@ import { paths } from '@/store/ui/mobile/drawer'
 import { generateFormattedTitle } from './utils'
 
 export default Vue.extend({
+  name: 'MobileAppToolbar',
   computed: {
     title(): string {
       // @ts-ignore: Unreachable code error

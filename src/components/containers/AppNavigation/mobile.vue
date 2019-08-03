@@ -22,6 +22,7 @@ interface IData {
 }
 export default Vue.extend({
   components: { AppNavigation },
+  name: 'MobileAppNavigation',
   data(): IData {
     return {
       list: [
