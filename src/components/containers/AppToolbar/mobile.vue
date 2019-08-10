@@ -1,9 +1,13 @@
 <template>
-  <v-toolbar flat>
+  <v-app-bar app fixed>
+    <v-btn icon>
+      <v-icon>mdi-menu</v-icon>
+    </v-btn>
+    <v-spacer />
     <v-toolbar-title>{{ title }}</v-toolbar-title>
     <v-spacer />
-    <v-toolbar-side-icon @click="toggleDrawer" />
-  </v-toolbar>
+    <v-app-bar-nav-icon @click="toggleDrawer"></v-app-bar-nav-icon>
+  </v-app-bar>
 </template>
 <script lang="ts">
 import Vue from 'vue'

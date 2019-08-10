@@ -35,29 +35,34 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['~/assets/style/app.styl'],
+  // css: ['~/assets/style/app.scss'],
 
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/vuetify'],
+  // plugins: ['@/plugins/vuetify'],
 
   /*
    ** Nuxt.js modules
    */
   modules: ['@nuxtjs/pwa'],
-
+  devModules: ['@nuxtjs/vuetify'],
+  vuetify: {
+    theme: {
+      dark: false
+    }
+  },
   /*
    ** Build configuration
    */
   build: {
-    transpile: ['vuetify/lib'],
-    plugins: [new VuetifyLoaderPlugin()],
-    loaders: {
-      stylus: {
-        import: ['~assets/style/variables.styl']
-      }
-    },
+    // transpile: ['vuetify/lib'],
+    // plugins: [new VuetifyLoaderPlugin()],
+    // loaders: {
+    //   stylus: {
+    //     import: ['~assets/style/variables.styl']
+    //   }
+    // },
     /*
      ** You can extend webpack config here
      */

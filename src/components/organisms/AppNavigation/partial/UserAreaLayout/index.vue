@@ -8,6 +8,7 @@
         <slot name="userMenu">ユーザーメニューが入ります</slot>
       </v-list-group>
     </v-list>
+    <v-divider></v-divider>
   </div>
 </template>
 <script lang="ts">

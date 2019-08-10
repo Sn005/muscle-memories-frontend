@@ -1,12 +1,12 @@
 <template>
-  <v-list-tile avatar>
-    <v-list-tile-avatar>
+  <v-list-item dense>
+    <v-list-item-avatar>
       <img :src="userInfo.icon" />
-    </v-list-tile-avatar>
-    <v-list-tile-content>
-      <v-list-tile-title>{{ userInfo.name }}</v-list-tile-title>
-    </v-list-tile-content>
-  </v-list-tile>
+    </v-list-item-avatar>
+    <v-list-item-content>
+      <v-list-item-title>{{ userInfo.name }}</v-list-item-title>
+    </v-list-item-content>
+  </v-list-item>
 </template>
 <script lang="ts">
 import Vue, { PropType } from 'vue'
