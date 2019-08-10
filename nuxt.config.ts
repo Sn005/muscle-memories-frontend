@@ -31,17 +31,6 @@ export default {
    ** Customize the progress-bar color
    */
   loading: { color: '#fff' },
-
-  /*
-   ** Global CSS
-   */
-  // css: ['~/assets/style/app.scss'],
-
-  /*
-   ** Plugins to load before mounting the App
-   */
-  // plugins: ['@/plugins/vuetify'],
-
   /*
    ** Nuxt.js modules
    */
@@ -56,13 +45,6 @@ export default {
    ** Build configuration
    */
   build: {
-    // transpile: ['vuetify/lib'],
-    // plugins: [new VuetifyLoaderPlugin()],
-    // loaders: {
-    //   stylus: {
-    //     import: ['~assets/style/variables.styl']
-    //   }
-    // },
     /*
      ** You can extend webpack config here
      */
