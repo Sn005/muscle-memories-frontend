@@ -5,7 +5,6 @@ export default (
   mobileComponent: VueConstructor
 ) => {
   const component = isMobile() ? mobileComponent : desktopComponent
-  console.log(component.name)
   return Vue.extend({
     functional: true,
     render(h: CreateElement, { data }): VNode {
