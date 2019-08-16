@@ -1,13 +1,17 @@
 export interface ITrainingRecordsQuery {
   id?: number
+  range?: {
+    to: Date
+    from: Date
+  }
 }
 
-interface ITrainingRecordsSets {
+export interface ITrainingRecordsSets {
   weight: number
   reps: number
 }
 
-interface ITrainingRecordsEvents {
+export interface ITrainingRecordsEvents {
   name: string
   sets: ITrainingRecordsSets[]
   memo: string
@@ -15,7 +19,7 @@ interface ITrainingRecordsEvents {
 
 export interface ITrainingRecordsModel {
   id: number
-  title: string | null
+  title: string
   trainingDate: Date
   events: ITrainingRecordsEvents[]
 }

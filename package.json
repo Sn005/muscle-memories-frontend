@@ -25,6 +25,7 @@
     "cross-env": "^5.2.0",
     "dotenv": "^8.0.0",
     "firebase": "^6.1.1",
+    "moment": "^2.24.0",
     "nuxt": "^2.4.0",
     "vue-class-component": "^7.1.0",
     "vue-property-decorator": "^8.1.1",

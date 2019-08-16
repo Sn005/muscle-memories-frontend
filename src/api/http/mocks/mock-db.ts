@@ -1,12 +1,10 @@
 import * as faker from 'faker'
+import { trainingRecords } from './entities/TrainingRecords'
+
 interface Post {
   name: string
   title: string
   context: string
-}
-
-interface DB {
-  posts: Post[]
 }
 const posts = [...Array(100)].map(
   (v): Post => {
@@ -17,6 +15,8 @@ const posts = [...Array(100)].map(
     }
   }
 )
-export const db: DB = {
-  posts
+
+export const db = {
+  posts,
+  'training-records': trainingRecords
 }
