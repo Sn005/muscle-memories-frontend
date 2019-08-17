@@ -1,9 +1,8 @@
 export interface ITrainingRecordsQuery {
   id?: number
-  range?: {
-    to: Date
-    from: Date
-  }
+  year?: number
+  month?: number
+  date?: number
 }
 
 export interface ITrainingRecordsSets {

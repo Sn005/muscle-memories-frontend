@@ -9,10 +9,9 @@ const targets = ['胸', '腕', '肩', '背中', '脚']
 
 export const trainingRecords = [...Array(40)].map(
   (v, i): ITrainingRecordsModel => {
-    const hoge = faker.date.past()
-
+    console.log('hoge')
     const title = targets[Math.floor(Math.random() * targets.length)] + 'の日'
-    const trainingDate = faker.date.between(moment().add('M', -3), moment())
+    const trainingDate = faker.date.between(moment().add(-3, 'M'), moment())
     const sets: ITrainingRecordsSets[] = [...Array(3)].map(v => {
       return {
         weight: faker.random.number({ min: 80, max: 120 }),
