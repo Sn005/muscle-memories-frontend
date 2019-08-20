@@ -1,19 +1,14 @@
 <template>
-  <v-layout wrap>
-    <v-card>
-      <v-card-title class="headline"
-        >Welcome to the Vuetify + Nuxt.js template</v-card-title
-      >
-      <v-card-text>
-        hoge
-      </v-card-text>
-    </v-card>
-  </v-layout>
+  <page-dashboard />
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import PageDashboard from '@/components/containers/PageDashbords'
 export default Vue.extend({
+  components: {
+    PageDashboard
+  },
   head() {
     return {
       title: 'dddfdf'
