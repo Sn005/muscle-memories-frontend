@@ -1,10 +1,11 @@
 <template>
   <div>
-    hoge
+    <training-records-calender :trainingRecords="trainingRecords" />
   </div>
 </template>
 <script lang="ts">
 import Vue from 'vue'
+import TrainingRecordsCalender from '@/components/organisms/TrainingRecordsCalender'
 import { ITrainingRecordsModel } from '@/interfaces/api/http/ITrainingRecords'
 import RepositoryFactory from '@/api/http/repositories/RepositoryFactory'
 const trainingRecordsRepository = RepositoryFactory.get('trainingRecords')
@@ -14,6 +15,9 @@ interface IData {
 }
 export default Vue.extend({
   name: 'DesktopPageDashbords',
+  components: {
+    TrainingRecordsCalender
+  },
   data(): IData {
     return {
       trainingRecords: null
