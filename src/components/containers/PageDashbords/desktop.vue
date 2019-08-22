@@ -12,6 +12,7 @@ const trainingRecordsRepository = RepositoryFactory.get('trainingRecords')
 
 interface IData {
   trainingRecords: ITrainingRecordsModel[] | null
+  selectedBodyPart: number | null
 }
 export default Vue.extend({
   name: 'DesktopPageDashbords',
@@ -20,7 +21,8 @@ export default Vue.extend({
   },
   data(): IData {
     return {
-      trainingRecords: null
+      trainingRecords: null,
+      selectedBodyPart: null
     }
   },
   async mounted() {

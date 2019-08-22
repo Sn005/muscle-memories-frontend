@@ -14,6 +14,7 @@ export interface ITrainingRecordsEvents {
   name: string
   sets: ITrainingRecordsSets[]
   memo: string
+  bodyPartId: number
 }
 
 export interface ITrainingRecordsModel {

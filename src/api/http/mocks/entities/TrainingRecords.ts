@@ -9,8 +9,8 @@ const targets = ['胸', '腕', '肩', '背中', '脚']
 
 export const trainingRecords = [...Array(30)].map(
   (v, i): ITrainingRecordsModel => {
-    console.log('hoge')
-    const title = targets[Math.floor(Math.random() * targets.length)] + 'の日'
+    const bodyPartId = Math.floor(Math.random() * targets.length)
+    const title = targets[bodyPartId] + 'の日'
     const trainingDate = faker.date.between(
       moment().add(1, 'M'),
       moment().add(-1, 'M')
@@ -25,7 +25,8 @@ export const trainingRecords = [...Array(30)].map(
       return {
         name: faker.lorem.words(),
         sets,
-        memo: faker.lorem.sentence()
+        memo: faker.lorem.sentence(),
+        bodyPartId
       }
     })
 
