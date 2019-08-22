@@ -4,7 +4,7 @@
       <v-calendar
         type="month"
         :now="now"
-        :events="formatedTrainingRecords"
+        :events="formatedWorkouts"
         @click:event="selectEvent"
       ></v-calendar>
     </v-sheet>
@@ -14,10 +14,10 @@
 <script lang="ts">
 import moment from 'moment'
 import Vue, { PropOptions, PropType } from 'vue'
-import { ITrainingRecordsModel } from '@/interfaces/api/http/ITrainingRecords'
+import { IWorkoutsModel } from '@/interfaces/api/http/IWorkouts'
 
 interface IFormatedTrainingRecords
-  extends Pick<ITrainingRecordsModel, 'id' | 'exercises'> {
+  extends Pick<IWorkoutsModel, 'id' | 'exercises'> {
   name: string
   start: string
 }
@@ -28,9 +28,9 @@ interface IData {
 }
 
 export default Vue.extend({
-  name: 'DesktopTrainingRecordsCalender',
+  name: 'DesktopWorkoutsCalender',
   props: {
-    trainingRecords: Array as PropType<ITrainingRecordsModel[] | undefined>
+    workouts: Array as PropType<IWorkoutsModel[] | undefined>
   },
   data(): IData {
     return {
@@ -39,9 +39,9 @@ export default Vue.extend({
     }
   },
   computed: {
-    formatedTrainingRecords(): IFormatedTrainingRecords[] {
-      if (!this.trainingRecords) return []
-      return this.trainingRecords.map(v => {
+    formatedWorkouts(): IFormatedTrainingRecords[] {
+      if (!this.workouts) return []
+      return this.workouts.map(v => {
         return {
           id: v.id,
           name: v.title,

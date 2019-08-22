@@ -2,20 +2,18 @@ import HttpAdapter from '../adapters/HttpAdapter'
 import MockHttpAdapter from '../adapters/MockHttpAdapter'
 
 import PostsRepository from './posts/PostsRepository'
-import HogesRepository from './hoges/HogesRepository'
-import TrainingRecordsRepository from './trainingRecords/TrainingRecordsRepository'
+import WorkoutsRepository from './WorkoutsRepository'
 
 const Adapter = process.env.IS_OFFLINE ? MockHttpAdapter : HttpAdapter
 
 const repositories = {
-  trainingRecords: TrainingRecordsRepository,
+  workouts: WorkoutsRepository,
   posts: PostsRepository
 }
 
 type repositoryTypes = {
-  trainingRecords: TrainingRecordsRepository
+  workouts: WorkoutsRepository
   posts: PostsRepository
-  // hoges: HogesRepository
 }
 
 export default {

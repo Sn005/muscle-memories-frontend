@@ -1,32 +1,32 @@
 <template>
   <div>
-    <training-records-calender :trainingRecords="trainingRecords" />
+    <workouts-calender :workouts="workouts" />
   </div>
 </template>
 <script lang="ts">
 import Vue from 'vue'
-import TrainingRecordsCalender from '@/components/organisms/TrainingRecordsCalender'
-import { ITrainingRecordsModel } from '@/interfaces/api/http/ITrainingRecords'
+import WorkoutsCalender from '@/components/organisms/WorkoutsCalender'
+import { IWorkoutsModel } from '@/interfaces/api/http/IWorkouts'
 import RepositoryFactory from '@/api/http/repositories/RepositoryFactory'
-const trainingRecordsRepository = RepositoryFactory.get('trainingRecords')
+const workoutsRepository = RepositoryFactory.get('workouts')
 
 interface IData {
-  trainingRecords: ITrainingRecordsModel[] | null
+  workouts: IWorkoutsModel[] | null
   selectedBodyPart: number | null
 }
 export default Vue.extend({
   name: 'DesktopPageDashbords',
   components: {
-    TrainingRecordsCalender
+    WorkoutsCalender
   },
   data(): IData {
     return {
-      trainingRecords: null,
+      workouts: null,
       selectedBodyPart: null
     }
   },
   async mounted() {
-    this.trainingRecords = await trainingRecordsRepository.all()
+    this.workouts = await workoutsRepository.all()
   }
 })
 </script>
