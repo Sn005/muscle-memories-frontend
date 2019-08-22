@@ -17,7 +17,7 @@ import Vue, { PropOptions, PropType } from 'vue'
 import { ITrainingRecordsModel } from '@/interfaces/api/http/ITrainingRecords'
 
 interface IFormatedTrainingRecords
-  extends Pick<ITrainingRecordsModel, 'id' | 'events'> {
+  extends Pick<ITrainingRecordsModel, 'id' | 'exercises'> {
   name: string
   start: string
 }
@@ -46,7 +46,7 @@ export default Vue.extend({
           id: v.id,
           name: v.title,
           start: moment(v.trainingDate).format('YYYY-MM-DD'),
-          events: v.events
+          exercises: v.exercises
         }
       })
     },

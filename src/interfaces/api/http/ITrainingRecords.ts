@@ -10,7 +10,7 @@ export interface ITrainingRecordsSets {
   reps: number
 }
 
-export interface ITrainingRecordsEvents {
+export interface ITrainingRecordsExercise {
   name: string
   sets: ITrainingRecordsSets[]
   memo: string
@@ -21,5 +21,5 @@ export interface ITrainingRecordsModel {
   id: number
   title: string
   trainingDate: Date
-  events: ITrainingRecordsEvents[]
+  exercises: ITrainingRecordsExercise[]
 }
