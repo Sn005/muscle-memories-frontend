@@ -7,7 +7,14 @@ import Decorator from './Decorator.vue'
 
 Vue.use(Vuetify)
 
+const vuetifyConfig = new Vuetify({
+  theme: {
+    dark: false
+  }
+})
+
 addDecorator(story => ({
+  vuetify: vuetifyConfig,
   components: { Decorator },
   template: '<decorator><story slot="story"></story></decorator>'
 }))

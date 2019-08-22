@@ -6,6 +6,7 @@ module.exports = ({ config }) => {
     loader: 'storybook-addon-vue-info/loader',
     enforce: 'post'
   })
-
+  config.resolve.alias['@'] = path.resolve(__dirname, '../../src')
+  config.resolve.alias['~'] = path.resolve(__dirname, '../../src')
   return config
 }

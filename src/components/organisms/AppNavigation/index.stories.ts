@@ -2,13 +2,13 @@
 import { storiesOf } from '@storybook/vue'
 import { withInfo } from 'storybook-addon-vue-info'
 
-import AppNavigation from './desktop.vue'
+import AppNavigation from './index.vue'
 import { INavigationItem, IUserInfo } from './types'
 
 storiesOf('organisms/AppNavigation', module)
   .addDecorator(withInfo)
   .add(
-    'desktddop',
+    'AppNavigation',
     () => ({
       components: { AppNavigation },
       data() {

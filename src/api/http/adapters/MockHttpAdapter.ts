@@ -2,6 +2,13 @@ import AdapterInterface from './AdapterInterface'
 import axios, { AxiosInstance } from 'axios'
 import { mockApiUri } from '@/config/app'
 
+const sleep = (waitSeconds: number) => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve()
+    }, waitSeconds * 1000)
+  })
+}
 export default class MockHttpAdapter implements AdapterInterface {
   private request(): AxiosInstance {
     return axios.create({
@@ -9,6 +16,7 @@ export default class MockHttpAdapter implements AdapterInterface {
     })
   }
   async get<T, U = void>(endpoint: string, req?: U): Promise<T> {
+    await sleep(2)
     const result = await this.request()
       .get<T>(endpoint, req)
       .catch(e => {

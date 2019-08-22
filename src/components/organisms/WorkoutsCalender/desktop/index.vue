@@ -8,27 +8,28 @@
         @click:event="selectEvent"
       ></v-calendar>
     </v-sheet>
-    <v-dialog v-model="isEventModal" width="500"> </v-dialog>
+    <v-dialog v-model="isEventModal" width="600">
+      <workout-card v-if="isEventModal" :workout="selectedEvent" />
+    </v-dialog>
   </div>
 </template>
 <script lang="ts">
 import moment from 'moment'
 import Vue, { PropOptions, PropType } from 'vue'
 import { IWorkoutsModel } from '@/interfaces/api/http/IWorkouts'
-
-interface IFormatedTrainingRecords
-  extends Pick<IWorkoutsModel, 'id' | 'exercises'> {
-  name: string
-  start: string
-}
+import { IFormatedWorkout } from '@/components/organisms/WorkoutsCalender/desktop/types'
+import WorkoutCard from '@/components/organisms/WorkoutsCalender/desktop/partial/WorkoutCard.vue'
 
 interface IData {
   now: string
-  selectedEvent: IFormatedTrainingRecords | null
+  selectedEvent: IFormatedWorkout | null
 }
 
 export default Vue.extend({
   name: 'DesktopWorkoutsCalender',
+  components: {
+    WorkoutCard
+  },
   props: {
     workouts: Array as PropType<IWorkoutsModel[] | undefined>
   },
@@ -39,7 +40,7 @@ export default Vue.extend({
     }
   },
   computed: {
-    formatedWorkouts(): IFormatedTrainingRecords[] {
+    formatedWorkouts(): IFormatedWorkout[] {
       if (!this.workouts) return []
       return this.workouts.map(v => {
         return {
