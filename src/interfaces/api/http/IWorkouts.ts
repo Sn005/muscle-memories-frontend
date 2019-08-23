@@ -5,14 +5,14 @@ export interface IWorkoutsQuery {
   date?: number
 }
 
-export interface IWorkoutsSets {
+export interface IWorkoutsSet {
   weight: number
   reps: number
 }
 
 export interface IWorkoutsExercise {
   name: string
-  sets: IWorkoutsSets[]
+  setList: IWorkoutsSet[]
   memo: string
   bodyPartId: number
 }
@@ -21,5 +21,5 @@ export interface IWorkoutsModel {
   id: number
   title: string
   trainingDate: Date
-  exercises: IWorkoutsExercise[]
+  exerciseList: IWorkoutsExercise[]
 }

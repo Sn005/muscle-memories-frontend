@@ -1,6 +1,6 @@
 import { IWorkoutsModel } from '@/interfaces/api/http/IWorkouts'
-export interface IFormatedWorkout
-  extends Pick<IWorkoutsModel, 'id' | 'exercises'> {
+export interface IFormatedWorkouts
+  extends Pick<IWorkoutsModel, 'id' | 'exerciseList'> {
   name: string
   start: string
 }

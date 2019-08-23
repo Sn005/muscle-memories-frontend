@@ -2,7 +2,7 @@
   <v-container>
     <p class="ml-n3">{{ exercise.name }}</p>
     <v-layout row wrap class="mb-4">
-      <v-flex v-for="(set, i) in exercise.sets" :key="i" xs6 class="mb-1">
+      <v-flex v-for="(set, i) in exercise.setList" :key="i" xs6 class="mb-1">
         {{ set.weight }}kg × {{ set.reps }}
       </v-flex>
     </v-layout>
@@ -20,7 +20,7 @@ interface IData {
 }
 
 export default Vue.extend({
-  name: 'DesktopWorkoutCardExercise',
+  name: 'DesktopWorkoutsCardExercise',
   props: {
     exercise: Object as PropType<IWorkoutsExercise>
   }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <workouts-calender :workouts="workouts" />
+    <workouts-calender :workoutsList="workoutsList" />
   </div>
 </template>
 <script lang="ts">
@@ -11,7 +11,7 @@ import RepositoryFactory from '@/api/http/repositories/RepositoryFactory'
 const workoutsRepository = RepositoryFactory.get('workouts')
 
 interface IData {
-  workouts: IWorkoutsModel[] | null
+  workoutsList: IWorkoutsModel[] | null
   selectedBodyPart: number | null
 }
 export default Vue.extend({
@@ -21,12 +21,12 @@ export default Vue.extend({
   },
   data(): IData {
     return {
-      workouts: null,
+      workoutsList: null,
       selectedBodyPart: null
     }
   },
   async mounted() {
-    this.workouts = await workoutsRepository.all()
+    this.workoutsList = await workoutsRepository.all()
   }
 })
 </script>

@@ -4,12 +4,12 @@
       <v-calendar
         type="month"
         :now="now"
-        :events="formatedWorkouts"
-        @click:event="selectEvent"
+        :events="formatedWorkoutsList"
+        @click:event="selectWorkout"
       ></v-calendar>
     </v-sheet>
-    <v-dialog v-model="isEventModal" width="600">
-      <workout-card v-if="isEventModal" :workout="selectedEvent" />
+    <v-dialog v-model="isWorkoutModal" width="600">
+      <workouts-card v-if="isWorkoutModal" :workouts="selectedWorkouts" />
     </v-dialog>
   </div>
 </template>
@@ -17,52 +17,52 @@
 import moment from 'moment'
 import Vue, { PropOptions, PropType } from 'vue'
 import { IWorkoutsModel } from '@/interfaces/api/http/IWorkouts'
-import { IFormatedWorkout } from '@/components/organisms/WorkoutsCalender/desktop/types'
-import WorkoutCard from '@/components/organisms/WorkoutsCalender/desktop/partial/WorkoutCard.vue'
+import { IFormatedWorkouts } from '@/components/organisms/WorkoutsCalender/desktop/types'
+import WorkoutsCard from '@/components/organisms/WorkoutsCalender/desktop/partial/WorkoutsCard.vue'
 
 interface IData {
   now: string
-  selectedEvent: IFormatedWorkout | null
+  selectedWorkouts: IFormatedWorkouts | null
 }
 
 export default Vue.extend({
   name: 'DesktopWorkoutsCalender',
   components: {
-    WorkoutCard
+    WorkoutsCard
   },
   props: {
-    workouts: Array as PropType<IWorkoutsModel[] | undefined>
+    workoutsList: Array as PropType<IWorkoutsModel[] | undefined>
   },
   data(): IData {
     return {
       now: moment().format('YYYY-MM-DD'),
-      selectedEvent: null
+      selectedWorkouts: null
     }
   },
   computed: {
-    formatedWorkouts(): IFormatedWorkout[] {
-      if (!this.workouts) return []
-      return this.workouts.map(v => {
+    formatedWorkoutsList(): IFormatedWorkouts[] {
+      if (!this.workoutsList) return []
+      return this.workoutsList.map(v => {
         return {
           id: v.id,
           name: v.title,
           start: moment(v.trainingDate).format('YYYY-MM-DD'),
-          exercises: v.exercises
+          exerciseList: v.exerciseList
         }
       })
     },
-    isEventModal: {
+    isWorkoutModal: {
       get(): boolean {
-        return !!this.selectedEvent
+        return !!this.selectedWorkouts
       },
       set(): void {
-        this.selectedEvent = null
+        this.selectedWorkouts = null
       }
     }
   },
   methods: {
-    selectEvent({ nativeEvent, event }) {
-      this.selectedEvent = event
+    selectWorkout({ nativeEvent, event }) {
+      this.selectedWorkouts = event
       nativeEvent.stopPropagation()
     }
   }

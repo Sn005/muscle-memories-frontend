@@ -2,25 +2,25 @@
 import moment from 'moment'
 import { storiesOf } from '@storybook/vue'
 import { withInfo } from 'storybook-addon-vue-info'
-import WorkoutCard from '@/components/organisms/WorkoutsCalender/desktop/partial/WorkoutCard.vue'
+import WorkoutsCard from '@/components/organisms/WorkoutsCalender/desktop/partial/WorkoutsCard.vue'
 import { workouts as mockWorkouts } from '@/api/http/mocks/entities/Workouts'
-import { IFormatedWorkout } from '@/components/organisms/WorkoutsCalender/desktop/types'
+import { IFormatedWorkouts } from '@/components/organisms/WorkoutsCalender/desktop/types'
 
-storiesOf('organisms/WorkoutsCalender/desktop/partial/WorkoutCard', module)
+storiesOf('organisms/WorkoutsCalender/desktop/partial/WorkoutsCard', module)
   .addDecorator(withInfo)
   .add('WorkoutCard', () => ({
-    components: { WorkoutCard },
+    components: { WorkoutsCard },
     data() {
       const mockWorkout = mockWorkouts[0]
-      const formatedMockWorkout: IFormatedWorkout = {
+      const formatedMockWorkouts: IFormatedWorkouts = {
         id: mockWorkout.id,
         name: mockWorkout.title,
         start: moment(mockWorkout.trainingDate).format('YYYY-MM-DD'),
-        exercises: mockWorkout.exercises
+        exerciseList: mockWorkout.exerciseList
       }
       return {
-        formatedMockWorkout
+        formatedMockWorkouts
       }
     },
-    template: '<workout-card :workout="formatedMockWorkout"/>'
+    template: '<workouts-card :workouts="formatedMockWorkouts"/>'
   }))
