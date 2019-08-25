@@ -1,11 +1,27 @@
 <template>
   <div>
+    <v-sheet height="64">
+      <v-toolbar flat color="white">
+        <v-btn fab text small @click="prev">
+          <v-icon small>mdi-chevron-left</v-icon>
+        </v-btn>
+        <v-btn fab text small @click="next">
+          <v-icon small>mdi-chevron-right</v-icon>
+        </v-btn>
+        <v-spacer />
+        <v-toolbar-title>ddd</v-toolbar-title>
+        <v-spacer />
+      </v-toolbar>
+    </v-sheet>
     <v-sheet height="620">
       <v-calendar
+        ref="calendar"
         type="month"
+        v-model="focus"
         :now="now"
         :events="formatedWorkoutsList"
         @click:event="selectWorkout"
+        @change="updateRange"
       ></v-calendar>
     </v-sheet>
     <v-dialog v-model="isWorkoutModal" width="600">
@@ -22,6 +38,7 @@ import WorkoutsCard from '@/components/organisms/WorkoutsCalender/desktop/partia
 
 interface IData {
   now: string
+  focus: string
   selectedWorkouts: IFormatedWorkouts | null
 }
 
@@ -34,8 +51,10 @@ export default Vue.extend({
     workoutsList: Array as PropType<IWorkoutsModel[] | undefined>
   },
   data(): IData {
+    const today = moment().format('YYYY-MM-DD')
     return {
-      now: moment().format('YYYY-MM-DD'),
+      focus: today,
+      now: today,
       selectedWorkouts: null
     }
   },
@@ -64,6 +83,14 @@ export default Vue.extend({
     selectWorkout({ nativeEvent, event }) {
       this.selectedWorkouts = event
       nativeEvent.stopPropagation()
+    },
+    prev() {
+      // @ts-ignore: Unreachable code error
+      this.$refs.calendar.prev()
+    },
+    next() {
+      // @ts-ignore: Unreachable code error
+      this.$refs.calendar.next()
     }
   }
 })
