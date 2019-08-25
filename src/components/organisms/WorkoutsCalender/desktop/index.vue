@@ -91,6 +91,9 @@ export default Vue.extend({
     next() {
       // @ts-ignore: Unreachable code error
       this.$refs.calendar.next()
+    },
+    updateRange({ start }) {
+      console.log(start)
     }
   }
 })

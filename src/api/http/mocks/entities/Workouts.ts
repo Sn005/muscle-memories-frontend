@@ -7,14 +7,11 @@ import {
 } from '@/interfaces/api/http/IWorkouts'
 const targets = ['胸', '腕', '肩', '背中', '脚']
 
-export const workouts = [...Array(30)].map(
+export const workouts = [...Array(240)].map(
   (v, i): IWorkoutsModel => {
     const bodyPartId = Math.floor(Math.random() * targets.length)
     const title = targets[bodyPartId] + 'の日'
-    const trainingDate = faker.date.between(
-      moment().add(1, 'M'),
-      moment().add(-1, 'M')
-    )
+    const trainingDate = faker.date.between(moment().add(-12, 'M'), moment())
     const setList: IWorkoutsSet[] = [...Array(3)].map(v => {
       return {
         weight: faker.random.number({ min: 80, max: 120 }),
