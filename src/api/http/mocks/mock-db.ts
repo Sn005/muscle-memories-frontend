@@ -1,5 +1,6 @@
 import * as faker from 'faker'
 import { workouts } from './entities/Workouts'
+import { bodyParts } from './entities/BodyParts'
 
 interface Post {
   name: string
@@ -18,5 +19,6 @@ const posts = [...Array(100)].map(
 
 export const db = {
   posts,
-  workouts
+  workouts,
+  bodyParts
 }
