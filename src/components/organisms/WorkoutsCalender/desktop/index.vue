@@ -14,6 +14,7 @@
         <v-col class="d-flex" cols="12" sm="3">
           <v-select
             :items="formatedBodypartsList"
+            @change="selectBodyparts"
             label="部位で絞り込む"
           ></v-select>
         </v-col>
@@ -25,7 +26,7 @@
         type="month"
         v-model="focus"
         :now="now"
-        :events="formatedWorkoutsList"
+        :events="filterdWorkoutsList"
         @click:event="selectWorkout"
         @change="updateRange"
       ></v-calendar>
@@ -46,10 +47,11 @@ import {
 } from '@/components/organisms/WorkoutsCalender/desktop/types'
 import WorkoutsCard from '@/components/organisms/WorkoutsCalender/desktop/partial/WorkoutsCard.vue'
 
-interface IData {
+interface Data {
   now: string
   focus: string
   selectedWorkouts: FormatedWorkouts | null
+  selectedBodyparts: number | null
 }
 
 export default Vue.extend({
@@ -61,12 +63,13 @@ export default Vue.extend({
     workoutsList: Array as PropType<WorkoutsModel[] | undefined>,
     bodyPartsList: Array as PropType<BodyPartsModel[] | undefined>
   },
-  data(): IData {
+  data(): Data {
     const today = moment().format('YYYY-MM-DD')
     return {
       focus: today,
       now: today,
-      selectedWorkouts: null
+      selectedWorkouts: null,
+      selectedBodyparts: null
     }
   },
   computed: {
@@ -80,6 +83,14 @@ export default Vue.extend({
           exerciseList: v.exerciseList
         }
       })
+    },
+    filterdWorkoutsList(): FormatedWorkouts[] {
+      if (this.selectedBodyparts === null) return this.formatedWorkoutsList
+      return this.formatedWorkoutsList.filter(workouts =>
+        workouts.exerciseList.some(
+          exercise => exercise.bodyPartId === this.selectedBodyparts
+        )
+      )
     },
     formatedBodypartsList(): FormatedBodyparts[] {
       if (!this.bodyPartsList) return []
@@ -111,6 +122,9 @@ export default Vue.extend({
     next() {
       // @ts-ignore: Unreachable code error
       this.$refs.calendar.next()
+    },
+    selectBodyparts(val: number) {
+      this.selectedBodyparts = val
     },
     updateRange({ start }) {
       console.log(start)
