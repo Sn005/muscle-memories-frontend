@@ -1,8 +1,8 @@
-export interface BodyPartsQuery {
+export interface BodypartsQuery {
   name?: string
 }
 
-export interface BodyPartsModel {
+export interface BodypartsModel {
   id: number
   name: string
 }

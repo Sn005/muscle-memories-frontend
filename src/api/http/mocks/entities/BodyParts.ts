@@ -1,8 +1,8 @@
-import { BodyPartsModel } from '@/interfaces/api/http/BodyParts'
+import { BodypartsModel } from '@/interfaces/api/http/Bodyparts'
 
 const bodyPartsNames = ['胸', '腕', '肩', '背中', '脚']
-export const bodyParts = bodyPartsNames.map(
-  (v, i): BodyPartsModel => {
+export const bodyparts = bodyPartsNames.map(
+  (v, i): BodypartsModel => {
     return {
       id: i,
       name: v
