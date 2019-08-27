@@ -1,10 +1,10 @@
-import { IWorkoutsModel, IWorkoutsQuery } from '@/interfaces/api/http/IWorkouts'
-import AbstractRepository from './AbstractRepository'
-import HttpAdapter from '../adapters/HttpAdapter'
-import MockHttpAdapter from '../adapters/MockHttpAdapter'
+import { WorkoutsModel, WorkoutsQuery } from '@/interfaces/api/http/Workouts'
+import AbstractRepository from '@/api/http/repositories/AbstractRepository'
+import HttpAdapter from '@/api/http/adapters/HttpAdapter'
+import MockHttpAdapter from '@/api/http/adapters/MockHttpAdapter'
 export default class TrainingRecordsRepository extends AbstractRepository<
-  IWorkoutsModel,
-  IWorkoutsQuery
+  WorkoutsModel,
+  WorkoutsQuery
 > {
   constructor(Adapter: typeof MockHttpAdapter | typeof HttpAdapter) {
     const rootUri = 'workouts'

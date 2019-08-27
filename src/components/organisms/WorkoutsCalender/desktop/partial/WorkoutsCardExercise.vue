@@ -12,17 +12,17 @@
 </template>
 <script lang="ts">
 import Vue, { PropType } from 'vue'
-import { IWorkoutsExercise } from '@/interfaces/api/http/IWorkouts'
+import { WorkoutsExercise } from '@/interfaces/api/http/Workouts'
 
 interface IData {
   now: string
-  exercise: IWorkoutsExercise
+  exercise: WorkoutsExercise
 }
 
 export default Vue.extend({
   name: 'DesktopWorkoutsCardExercise',
   props: {
-    exercise: Object as PropType<IWorkoutsExercise>
+    exercise: Object as PropType<WorkoutsExercise>
   }
 })
 </script>

@@ -22,13 +22,13 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue'
 import WorkoutsCardExercise from '@/components/organisms/WorkoutsCalender/desktop/partial/WorkoutsCardExercise.vue'
-import { IFormatedWorkouts } from '@/components/organisms/WorkoutsCalender/desktop/types'
+import { FormatedWorkouts } from '@/components/organisms/WorkoutsCalender/desktop/types'
 
 export default Vue.extend({
   name: 'DesktopWorkoutsCard',
   components: { WorkoutsCardExercise },
   props: {
-    workouts: Object as PropType<IFormatedWorkouts>
+    workouts: Object as PropType<FormatedWorkouts>
   }
 })
 </script>

@@ -11,6 +11,12 @@
         <v-spacer />
         <v-toolbar-title>ddd</v-toolbar-title>
         <v-spacer />
+        <v-col class="d-flex" cols="12" sm="3">
+          <v-select
+            :items="formatedBodypartsList"
+            label="部位で絞り込む"
+          ></v-select>
+        </v-col>
       </v-toolbar>
     </v-sheet>
     <v-sheet height="620">
@@ -32,14 +38,18 @@
 <script lang="ts">
 import moment from 'moment'
 import Vue, { PropOptions, PropType } from 'vue'
-import { IWorkoutsModel } from '@/interfaces/api/http/IWorkouts'
-import { IFormatedWorkouts } from '@/components/organisms/WorkoutsCalender/desktop/types'
+import { WorkoutsModel } from '@/interfaces/api/http/Workouts'
+import { BodyPartsModel } from '@/interfaces/api/http/Bodyparts'
+import {
+  FormatedWorkouts,
+  FormatedBodyparts
+} from '@/components/organisms/WorkoutsCalender/desktop/types'
 import WorkoutsCard from '@/components/organisms/WorkoutsCalender/desktop/partial/WorkoutsCard.vue'
 
 interface IData {
   now: string
   focus: string
-  selectedWorkouts: IFormatedWorkouts | null
+  selectedWorkouts: FormatedWorkouts | null
 }
 
 export default Vue.extend({
@@ -48,7 +58,8 @@ export default Vue.extend({
     WorkoutsCard
   },
   props: {
-    workoutsList: Array as PropType<IWorkoutsModel[] | undefined>
+    workoutsList: Array as PropType<WorkoutsModel[] | undefined>,
+    bodyPartsList: Array as PropType<BodyPartsModel[] | undefined>
   },
   data(): IData {
     const today = moment().format('YYYY-MM-DD')
@@ -59,7 +70,7 @@ export default Vue.extend({
     }
   },
   computed: {
-    formatedWorkoutsList(): IFormatedWorkouts[] {
+    formatedWorkoutsList(): FormatedWorkouts[] {
       if (!this.workoutsList) return []
       return this.workoutsList.map(v => {
         return {
@@ -67,6 +78,15 @@ export default Vue.extend({
           name: v.title,
           start: moment(v.trainingDate).format('YYYY-MM-DD'),
           exerciseList: v.exerciseList
+        }
+      })
+    },
+    formatedBodypartsList(): FormatedBodyparts[] {
+      if (!this.bodyPartsList) return []
+      return this.bodyPartsList.map((v, i) => {
+        return {
+          text: v.name,
+          value: v.id
         }
       })
     },

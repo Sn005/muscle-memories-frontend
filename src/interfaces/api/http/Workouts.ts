@@ -1,25 +1,25 @@
-export interface IWorkoutsQuery {
+export interface WorkoutsQuery {
   id?: number
   year?: number
   month?: number
   date?: number
 }
 
-export interface IWorkoutsSet {
+export interface WorkoutsSet {
   weight: number
   reps: number
 }
 
-export interface IWorkoutsExercise {
+export interface WorkoutsExercise {
   name: string
-  setList: IWorkoutsSet[]
+  setList: WorkoutsSet[]
   memo: string
   bodyPartId: number
 }
 
-export interface IWorkoutsModel {
+export interface WorkoutsModel {
   id: number
   title: string
   trainingDate: Date
-  exerciseList: IWorkoutsExercise[]
+  exerciseList: WorkoutsExercise[]
 }
