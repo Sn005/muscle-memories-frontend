@@ -5,11 +5,11 @@
         <v-btn fab text small @click="prev">
           <v-icon small>mdi-chevron-left</v-icon>
         </v-btn>
-        <v-btn fab text small @click="next">
+        <v-btn fab text small @click="next" :disabled="isCurrentMonth">
           <v-icon small>mdi-chevron-right</v-icon>
         </v-btn>
         <v-spacer />
-        <v-toolbar-title>ddd</v-toolbar-title>
+        <v-toolbar-title>{{ title }}</v-toolbar-title>
         <v-spacer />
         <v-col class="d-flex" cols="12" sm="3">
           <v-select
@@ -73,6 +73,12 @@ export default Vue.extend({
     }
   },
   computed: {
+    isCurrentMonth(): boolean {
+      return moment(this.focus).isSame(this.now, 'month')
+    },
+    title(): string {
+      return moment(this.focus).format('YYYY年MM月')
+    },
     formatedWorkoutsList(): FormatedWorkouts[] {
       if (!this.workoutsList) return []
       return this.workoutsList.map(v => {
