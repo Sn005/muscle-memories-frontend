@@ -4,7 +4,7 @@
       :workoutsList="workoutsList"
       :bodyPartsList="bodyPartsList"
     />
-    <v-overlay :value="isLoad">
+    <v-overlay :value="isLoad" absolute>
       <v-progress-circular indeterminate size="64"></v-progress-circular>
     </v-overlay>
   </div>
@@ -46,8 +46,6 @@ export default Vue.extend({
     this.isLoad = false
     this.bodyPartsList = resut[0]
     this.workoutsList = resut[1]
-    // this.bodyPartsList = await BodypartsRepository.all()
-    // this.workoutsList = await workoutsRepository.all()
   }
 })
 </script>

@@ -91,7 +91,7 @@ export default Vue.extend({
       })
     },
     filterdWorkoutsList(): FormatedWorkouts[] {
-      if (this.selectedBodyparts === null) return this.formatedWorkoutsList
+      if (!this.selectedBodyparts) return this.formatedWorkoutsList
       return this.formatedWorkoutsList.filter(workouts =>
         workouts.exerciseList.some(
           exercise => exercise.bodyPartId === this.selectedBodyparts
@@ -100,12 +100,13 @@ export default Vue.extend({
     },
     formatedBodypartsList(): FormatedBodyparts[] {
       if (!this.bodyPartsList) return []
-      return this.bodyPartsList.map((v, i) => {
+      const result = this.bodyPartsList.map((v, i) => {
         return {
           text: v.name,
           value: v.id
         }
       })
+      return [{ text: '全て表示', value: 0 }, ...result]
     },
     isWorkoutModal: {
       get(): boolean {
