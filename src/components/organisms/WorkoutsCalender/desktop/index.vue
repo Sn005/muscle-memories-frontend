@@ -22,9 +22,11 @@
     </v-sheet>
     <v-sheet height="620">
       <v-calendar
+        v-model="focus"
         ref="calendar"
         type="month"
-        v-model="focus"
+        event-color="primary"
+        :weekdays="weekdays"
         :now="now"
         :events="filterdWorkoutsList"
         @click:event="selectWorkout"
@@ -37,10 +39,10 @@
   </div>
 </template>
 <script lang="ts">
-import moment from 'moment'
+import moment, { weekdays } from 'moment'
 import Vue, { PropOptions, PropType } from 'vue'
 import { WorkoutsModel } from '@/interfaces/api/http/Workouts'
-import { BodyPartsModel } from '@/interfaces/api/http/Bodyparts'
+import { BodypartsModel } from '@/interfaces/api/http/Bodyparts'
 import {
   FormatedWorkouts,
   FormatedBodyparts
@@ -52,6 +54,7 @@ interface Data {
   focus: string
   selectedWorkouts: FormatedWorkouts | null
   selectedBodyparts: number | null
+  weekdays: number[]
 }
 
 export default Vue.extend({
@@ -61,7 +64,7 @@ export default Vue.extend({
   },
   props: {
     workoutsList: Array as PropType<WorkoutsModel[] | undefined>,
-    bodyPartsList: Array as PropType<BodyPartsModel[] | undefined>
+    bodyPartsList: Array as PropType<BodypartsModel[] | undefined>
   },
   data(): Data {
     const today = moment().format('YYYY-MM-DD')
@@ -69,7 +72,8 @@ export default Vue.extend({
       focus: today,
       now: today,
       selectedWorkouts: null,
-      selectedBodyparts: null
+      selectedBodyparts: null,
+      weekdays: [1, 2, 3, 4, 5, 6, 0]
     }
   },
   computed: {

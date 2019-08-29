@@ -1,6 +1,8 @@
 import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
 import pkg from './package.json'
 import * as dotenv from 'dotenv'
+import ja from 'vuetify/es5/locale/ja'
+
 dotenv.config()
 
 export default {
@@ -39,6 +41,10 @@ export default {
   vuetify: {
     theme: {
       dark: false
+    },
+    lang: {
+      locales: { ja },
+      current: 'ja'
     }
   },
   /*
