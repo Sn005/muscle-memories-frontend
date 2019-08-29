@@ -3,6 +3,8 @@ export interface WorkoutsQuery {
   year?: number
   month?: number
   date?: number
+  to?: string
+  from?: string
 }
 
 export interface WorkoutsSet {

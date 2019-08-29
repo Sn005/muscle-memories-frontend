@@ -39,7 +39,7 @@
   </div>
 </template>
 <script lang="ts">
-import moment, { weekdays } from 'moment'
+import moment from 'moment'
 import Vue, { PropOptions, PropType } from 'vue'
 import { WorkoutsModel } from '@/interfaces/api/http/Workouts'
 import { BodypartsModel } from '@/interfaces/api/http/Bodyparts'
@@ -138,7 +138,7 @@ export default Vue.extend({
       this.selectedBodyparts = val
     },
     updateRange({ start }) {
-      console.log(start)
+      this.$emit('update:selectedYear', start.year)
     }
   }
 })
