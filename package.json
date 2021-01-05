@@ -21,7 +21,7 @@
     "@nuxtjs/pwa": "^2.6.0",
     "@nuxtjs/vuetify": "^1.1.1",
     "@types/dotenv": "^6.1.1",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "cross-env": "^5.2.0",
     "dotenv": "^8.0.0",
     "firebase": "^6.1.1",
